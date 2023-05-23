@@ -72,13 +72,14 @@
 
             e = e || window.event;
             if (e.keyCode == '37' && fotonum > 0) {
-            // left arrow
+                // left arrow
                 window.location.href = "?strana=1&foto=" + (fotonum-1);
             }
             else if (e.keyCode == '39' && fotonum < fotomax-1) {
-            // right arrow
+                // right arrow
                 window.location.href = "?strana=1&foto=" + (fotonum+1);
             }
+            alert(e.key);
         }
 
     </script>

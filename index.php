@@ -55,7 +55,8 @@
                 "Hlavní strana" => "domov",
                 "Galerie" => "galerie",
                 "Ostatní" => "ostatni",
-                "Formulář" => "editor"
+                "Formulář" => "editor",
+		"Databáze" => "database"
             ];
                 
             $index = 0;
