@@ -32,7 +32,7 @@
 	
     
     $file = "ran" . rand(0,2) . ".jfif";
-	echo "<img class=\"rndimg\" src=\"$file\">"
+	echo "<img class=\"rndimg\" src=\"assets/obrazky/$file\">"
 	
     ?>
   </body>
