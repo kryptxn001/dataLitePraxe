@@ -24,19 +24,32 @@
 
   <body>
         <form method="post" id="vyhledavac">
-          <input type="text" name="user" placeholder="userid" autocomplete="off"><br>
+          <input type="text" name="jmeno" placeholder="Jméno" autocomplete="off"><br>
+          <input type="text" name="prijmeni" placeholder="Příjmení" autocomplete="off"><br>
+          <input type="submit" name="submit" value="Vyhledat">
         </form>
         <?php 
-          if(isset($_POST["user"])) {
-            $findid = $_POST["user"];
+          if(isset($_POST["jmeno"])) {
+            $findjmeno = $_POST["jmeno"];
           } else {
-            $findid = "*";
+            $findjmeno = "";
           }
-          $conn = mysqli_connect("localhost","root","","datalitepraxe") or die("Connection Failed: " .mysqli_connect_error());
-          if(!(isset($findid)) or $findid=="*" or $findid=="") {
-            $sql = "SELECT * FROM uzivatel;";
+
+          if(isset($_POST["prijmeni"])) {
+            $findprijmeni = $_POST["prijmeni"];
           } else {
-            $sql = "SELECT * FROM uzivatel WHERE id='$findid';";
+            $findprijmeni = "";
+          }
+
+          $conn = mysqli_connect("localhost","root","","datalitepraxe") or die("Connection Failed: " .mysqli_connect_error());
+          if($findjmeno=="" and $findprijmeni=="") {
+            $sql = "SELECT * FROM uzivatel;";
+          } elseif($findjmeno=="" and $findprijmeni !="") {
+            $sql = "SELECT * FROM uzivatel WHERE prijmeni='$findprijmeni';";
+          } elseif($findjmeno!="" and $findprijmeni =="") {
+            $sql = "SELECT * FROM uzivatel WHERE jmeno='$findjmeno';";
+          } else {
+            $sql = "SELECT * FROM uzivatel WHERE jmeno='$findjmeno' AND prijmeni='$findprijmeni';";
           }
           
           $result = mysqli_query($conn, $sql);
