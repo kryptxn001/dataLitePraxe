@@ -8,8 +8,22 @@
   
   <style>
     table, tr, td, th {
-      border:1px solid black;
+      
     }
+
+    th {
+      border: 3px solid black;
+      padding: 2px 10px;
+      font-size: 30px;
+    }
+
+    td {
+      border: 1px solid black;
+      padding: 2px 10px;
+      font-size: 30px;
+    }
+
+    
 
     #dataTable {
       margin: 20px;
@@ -20,13 +34,32 @@
       margin: 20px;
     }
 
+    .btn {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 20px;
+      border-radius: 10px;
+      border: none;
+      background-color: aquamarine;
+    }
+
+    .finput {
+      margin: 5px;
+      padding: 5px;
+      font-size: 20px;
+      border-radius: 5px;
+      border: solid 1px black;
+    }
+
+
+
   </style>
 
   <body>
         <form method="post" id="vyhledavac">
-          <input type="text" name="jmeno" placeholder="Jméno" autocomplete="off"><br>
-          <input type="text" name="prijmeni" placeholder="Příjmení" autocomplete="off"><br>
-          <input type="submit" name="submit" value="Vyhledat">
+          <input class="finput" type="text" name="jmeno" placeholder="Jméno" autocomplete="off"><br>
+          <input class="finput" type="text" name="prijmeni" placeholder="Příjmení" autocomplete="off"><br>
+          <input class="btn" type="submit" name="submit" value="Vyhledat">
         </form>
         <?php 
           if(isset($_POST["jmeno"])) {
@@ -74,7 +107,7 @@
 
             echo "</table>";
           } else {
-            echo "<b style=\"margin-left: 20px;\">Nebylo nic nalezeno!</b> <br>";
+            echo "<b style=\"margin-left: 20px; color: red; font-size: 30px;\">Nebylo nic nalezeno!</b> <br>";
           }
         
         ?>

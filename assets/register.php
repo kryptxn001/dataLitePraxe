@@ -12,27 +12,65 @@
       top: 100px;
     }
 
-    #loginform input {
+    .txtinput {
       margin: 5px;
+      padding: 5px;
+      font-size: 20px;
+      border-radius: 5px;
+      border: solid 1px black;
+    }
+
+    .txtinput:focus {
+      background-color: #b3ffe6;
     }
 
     .success {
       color: green;
+      font-style: italic;
+      font-size: 20px;
+      margin: 5px;
+      padding: 0px;
     }
 
     .wrong {
       color: red;
+      font-style: italic;
+      font-size: 20px;
+      margin: 5px;
+      padding: 0px;
+    }
 
+    .btn {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 20px;
+      border-radius: 10px;
+      border: none;
+      background-color: aquamarine;
+    }
+
+    .btn:hover {
+      background-color: #b3ffe6;
+    }
+
+    h1 {
+      color: aquamarine;
+      text-shadow: 0px 0px 5px black;
+      margin-bottom: 5px;
+    }
+
+    .loginhref {
+      color: aquamarine;
+      font-weight: bold;
     }
   </style>
   
   <body>
         <form id="loginform" method="post">
-          <h1>REGISTROVAT</h1>
-          <input type="text" name="username" placeholder="Uživatelské jméno"> <br>
-          <input type="text" name="email" placeholder="E-mail"> <br>
-          <input type="password" name="password" placeholder="Heslo"> <br>
-          <input type="submit" name="submit" value="Registrovat"> <br>
+          <h1>REGISTRACE</h1>
+          <input class="txtinput" type="text" name="username" placeholder="Uživatelské jméno"> <br>
+          <input class="txtinput" type="text" name="email" placeholder="E-mail"> <br>
+          <input class="txtinput" type="password" name="password" placeholder="Heslo"> <br>
           <?php 
             if(isset($_POST["username"])) {
               $username = $_POST["username"];
@@ -65,19 +103,22 @@
                 
                 $sql = "INSERT INTO `login` (`id`, `username`, `password`, `email`) VALUES (NULL, '$username', '$password', '$email');";
                 $result = mysqli_query($conn, $sql);
-                echo "<p class='success'>Account created!</p>";
+                echo "<p class='success'>Učet vytvořen!</p>";
               } else {
                 $row = mysqli_fetch_assoc($result);
 
-                echo "<p class='wrong'>Username taken!</p>";
+                echo "<p class='wrong'>Uživatelské jméno zabrané!</p>";
               }
             } else {
               if(isset($_POST["submit"])) {
-                echo "<p class='wrong'>Something is missing!</p>";
+                echo "<p class='wrong'>Doplň jméno nebo heslo nebo email!</p>";
               }
             }
             
           ?>
+          <input class="btn" type="submit" name="submit" value="Registrovat"> <br>
+          <p>Máš učet? <a class="loginhref" href="?strana=5">Přihlas se</a></p> <br>
+          
           
         </form>
         

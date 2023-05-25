@@ -7,25 +7,28 @@
   </head>
   <style>
     #textbox1 {
-        border-radius: 25px;
-        margin: 10px;
-        padding: 10px;
-        font-size: 20px;
+        margin: 5px;
+      padding: 5px;
+      font-size: 20px;
+      border-radius: 5px;
+      border: solid 1px black;
     }
     
     #saveBtn {
-        background-color: aquamarine;
-        border: 0;
-        padding: 25px;
-        margin: 10px;
-        border-radius: 10px;
+        margin: 5px;
+      padding: 10px 15px;
+      font-size: 20px;
+      border-radius: 10px;
+      border: none;
+      background-color: aquamarine;
     }
   
     #idjmeno {
-        border-radius: 25px;
-        margin: 10px;
-        padding: 10px;
-        font-size: 20px;
+        margin: 5px;
+      padding: 5px;
+      font-size: 20px;
+      border-radius: 5px;
+      border: solid 1px black;
     }
   </style>
   

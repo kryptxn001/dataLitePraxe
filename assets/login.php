@@ -12,26 +12,65 @@
       top: 100px;
     }
 
-    #loginform input {
+    .txtinput {
       margin: 5px;
+      padding: 5px;
+      font-size: 20px;
+      border-radius: 5px;
+      border: solid 1px black;
+    }
+
+    .txtinput:focus {
+      background-color: #b3ffe6;
     }
 
     .success {
       color: green;
+      font-style: italic;
+      font-size: 20px;
+      margin: 5px;
+      padding: 0px;
     }
 
     .wrong {
       color: red;
+      font-style: italic;
+      font-size: 20px;
+      margin: 5px;
+      padding: 0px;
 
+    }
+
+    .btn {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 20px;
+      border-radius: 10px;
+      border: none;
+      background-color: aquamarine;
+    }
+
+    .btn:hover {
+      background-color: #b3ffe6;
+    }
+
+    h1 {
+      color: aquamarine;
+      text-shadow: 0px 0px 5px black;
+      margin-bottom: 5px;
+    }
+
+    .loginhref {
+      color: aquamarine;
+      font-weight: bold;
     }
   </style>
   
   <body>
         <form id="loginform" method="post">
           <h1>PŘIHLÁŠENÍ</h1>
-          <input type="text" name="username" placeholder="Uživatelské jméno"> <br>
-          <input type="password" name="password" placeholder="Heslo"> <br>
-          <input type="submit" name="submit" value="Přihlásit se"> <br>
+          <input class="txtinput" type="text" name="username" placeholder="Uživatelské jméno"> <br>
+          <input class="txtinput" type="password" name="password" placeholder="Heslo"> <br>
           <?php 
             if(isset($_POST["username"])) {
               $username = $_POST["username"];
@@ -55,19 +94,22 @@
 
 
               if($resultCheck == 0) {
-                echo "<p class='wrong'>Wrong username or password!</p>";
+                echo "<p class='wrong'>Špatné uživatelské jméno nebo heslo!</p>";
               } else {
                 $row = mysqli_fetch_assoc($result);
 
-                echo "<p class='success'>Sucessfully logged into: " . $row['email'] . "</p>";
+                echo "<p class='success'>Uspěšně přihlášeno do: " . $row['email'] . "</p>";
               }
             } else {
               if(isset($_POST["submit"])) {
-                echo "<p class='wrong'>Something is missing!</p>";
+                echo "<p class='wrong'>Doplň jméno nebo heslo!</p>";
               }
             }
             
           ?>
+          <input class="btn" type="submit" name="submit" value="Přihlásit se"> <br>
+          <p>Nemáš učet? <a class="loginhref" href="?strana=6">Založ si ho</a></p> <br>
+          
           
         </form>
         
