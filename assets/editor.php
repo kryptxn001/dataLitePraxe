@@ -48,8 +48,10 @@
                     fwrite($txtfile,date("h:i:sa") . " - " . $_POST["textbox1"] . "\n");
                     fclose($txtfile);
                 }
-            
-                @save();
+                if(isset($_POST["submit"])) {
+                    @save();
+                }
+                
             ?>
         </form>
         
