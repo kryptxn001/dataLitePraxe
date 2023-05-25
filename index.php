@@ -56,7 +56,9 @@
                 "Galerie" => "galerie",
                 "Ostatní" => "ostatni",
                 "Formulář" => "editor",
-		"Databáze" => "database"
+		"Databáze" => "database",
+		"Přihlášení" => "login",
+        "Registrace" => "register"
             ];
                 
             $index = 0;

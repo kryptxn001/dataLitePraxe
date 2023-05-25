@@ -79,7 +79,6 @@
                 // right arrow
                 window.location.href = "?strana=1&foto=" + (fotonum+1);
             }
-            alert(e.key);
         }
 
     </script>
