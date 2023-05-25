@@ -61,7 +61,22 @@
                 Print($_GET["foto"]); 
             }
         ?>;
-        var fotomax = <?php Print(5); ?>;
+        var fotomax = <?php 
+                        $fotomax = 0;
+                        if ($handle = opendir('./galerie')) {
+
+                            while (false !== ($entry = readdir($handle))) {
+            
+                                if ($entry != "." && $entry != "..") {
+                                    
+                                    $fotomax=$fotomax+1;
+                                }
+                            }
+            
+                        closedir($handle);
+                       }
+                       Print($fotomax);
+                    ?>;
         
         document.onkeydown = checkKey;
 
@@ -100,7 +115,7 @@
         	closedir($handle);
     	   }
 
-           $fotomax = sizeof($fotky);
+           $fotomax = sizeof($fotky)-1;
                       
             function drawGalery($fotky) {
                 $index = 0;
